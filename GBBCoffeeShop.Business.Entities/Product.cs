@@ -2,6 +2,9 @@
 
 namespace GBBCoffeeShop.Business.Entities
 {
+    /// <summary>
+    /// The products of the Coffee Shop
+    /// </summary>
     [Serializable]
     public class Product
     {

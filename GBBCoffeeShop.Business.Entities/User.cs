@@ -5,10 +5,10 @@ using System.Text;
 namespace GBBCoffeeShop.Business.Entities
 {
     /// <summary>
-    /// The sale item of a Sale
+    /// The staff/crew of the Coffee shop
     /// </summary>
     [Serializable]
-    public class SaleItem
+    public class User
     {
         /// <summary>
         /// The unique Id
@@ -16,13 +16,18 @@ namespace GBBCoffeeShop.Business.Entities
         public long Id { get; set; }
 
         /// <summary>
-        /// The Unit Price
+        /// The first name of the user
         /// </summary>
-        public decimal UnitPrice { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
-        /// The product associated with the this sale item
+        /// The last name of the user
         /// </summary>
-        public Product ProductItem { get; set; }
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// The role of the user (CASHIER, BARISTA)
+        /// </summary>
+        public string Role { get; set; }
     }
 }

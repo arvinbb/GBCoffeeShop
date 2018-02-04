@@ -24,5 +24,10 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories
         {
             return CoffeeContext.Sales.Include(a => a.Items).SingleOrDefault(a => a.Id == id);
         }
+
+        public void UpdateSale(Sale sale)
+        {
+            CoffeeContext.Sales.Update(sale);
+        }
     }
 }
