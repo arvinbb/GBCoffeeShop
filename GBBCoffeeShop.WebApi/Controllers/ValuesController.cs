@@ -1,17 +1,23 @@
-﻿using System;
+﻿using GBBCoffeeShop.Business.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Unity.Attributes;
 
 namespace GBBCoffeeShop.WebApi.Controllers
 {
     public class ValuesController : ApiController
     {
+        [Dependency]
+        public ICoffeeShopService CoffeeShopService { get; set; }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var test = CoffeeShopService.GetSale(1);
             return new string[] { "value1", "value2" };
         }
 

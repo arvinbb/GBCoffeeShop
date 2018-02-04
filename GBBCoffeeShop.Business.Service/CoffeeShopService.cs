@@ -11,17 +11,24 @@ using System.Threading.Tasks;
 
 namespace GBBCoffeeShop.Business.Service
 {
-        
-    public class CoffeeShop : ICoffeeShop
+    
+    public class CoffeeShopService : ICoffeeShopService
     {
-        public CoffeeShop()
+        private CoffeeContext context;
+
+        public CoffeeShopService()
         {
+            context = CoffeeContext.GetContext();
+            context.SeedData();
             
         }
 
         public Sale GetSale(long id)
         {
-            throw new NotImplementedException();
+            IShopProductRepository repo = new ShopProductRepository(context);
+            var menu = repo.GetShopMenu(0, 1000);
+            return null;
+
         }
     }
 }

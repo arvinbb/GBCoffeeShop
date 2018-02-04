@@ -13,7 +13,7 @@ namespace GBBCoffeeShop.Business.Interfaces
     /// Defines the service contract
     /// </summary>
     [ServiceContract(Namespace = "http://GBBCoffeeShop.com")]
-    public interface ICoffeeShop
+    public interface ICoffeeShopService
     {
         [OperationContract]
         Sale GetSale(long id);        

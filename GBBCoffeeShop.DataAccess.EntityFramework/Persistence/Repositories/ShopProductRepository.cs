@@ -23,7 +23,7 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories
         public IEnumerable<Product> GetShopMenu(int pageIndex, int pageSize)
         {
             return CoffeeContext.Products
-             .Include(c => c)
+             //.Include(c => c)
              .OrderBy(c => c.Name)
              .Skip((pageIndex - 1) * pageSize)
              .Take(pageSize)

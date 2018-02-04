@@ -16,7 +16,7 @@ namespace GBBCoffeeShop.WebApi
 
             // register all components with the container here              
             container.RegisterInstance<LoggingService>(LoggingService.Log);
-            container.RegisterType<ICoffeeShop, CoffeeShopFacadeService>();
+            container.RegisterType<ICoffeeShopService, CoffeeShopFacadeService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

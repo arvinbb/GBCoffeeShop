@@ -18,8 +18,8 @@ namespace GBBCoffeeShop.Business.Service.Host
             {
                 serviceHost.Close();
             }
-                        
-            serviceHost = new ServiceHost(typeof(CoffeeShop));
+
+            serviceHost = new ServiceHost(new Service.CoffeeShopService());
 
             // Open the ServiceHostBase to create listeners and start 
             // listening for messages.

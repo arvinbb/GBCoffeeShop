@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace GBBCoffeeShop.WebApi.Services
 {
-    public class CoffeeShopFacadeService : ICoffeeShop
+    public class CoffeeShopFacadeService : ICoffeeShopService
     {        
         public Sale GetSale(long id)
         {
-            using (var client = new WCFServiceClientWrapper<ICoffeeShop>())
+            using (var client = new WCFServiceClientWrapper<ICoffeeShopService>())
             {
                 return client.Channel.GetSale(id);
             }
