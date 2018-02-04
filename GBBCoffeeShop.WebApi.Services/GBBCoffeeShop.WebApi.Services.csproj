@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8FFB7EC-BC99-4A7B-B62E-90D838AF46F7}</ProjectGuid>
+    <ProjectGuid>{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GBBCoffeeShop.Common</RootNamespace>
-    <AssemblyName>GBBCoffeeShop.Common</AssemblyName>
+    <RootNamespace>GBBCoffeeShop.WebApi.Services</RootNamespace>
+    <AssemblyName>GBBCoffeeShop.WebApi.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,10 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionHelper.cs" />
-    <Compile Include="LoggingService.cs" />
-    <Compile Include="WCFServiceClientWrapper.cs" />
+    <Compile Include="CoffeeShopFacadeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBBCoffeeShop.Business.Entities\GBBCoffeeShop.Business.Entities.csproj">
+      <Project>{71C7002C-F9BD-475A-9CA9-58E2669E4BFC}</Project>
+      <Name>GBBCoffeeShop.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBBCoffeeShop.Business.Interfaces\GBBCoffeeShop.Business.Interfaces.csproj">
+      <Project>{7bb53d8d-3f17-4f1e-ab4c-30c018625cbc}</Project>
+      <Name>GBBCoffeeShop.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBBCoffeeShop.Common\GBBCoffeeShop.Common.csproj">
+      <Project>{a8ffb7ec-bc99-4a7b-b62e-90d838af46f7}</Project>
+      <Name>GBBCoffeeShop.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

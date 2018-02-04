@@ -281,6 +281,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBBCoffeeShop.Business.Interfaces\GBBCoffeeShop.Business.Interfaces.csproj">
+      <Project>{7bb53d8d-3f17-4f1e-ab4c-30c018625cbc}</Project>
+      <Name>GBBCoffeeShop.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBBCoffeeShop.Common\GBBCoffeeShop.Common.csproj">
+      <Project>{a8ffb7ec-bc99-4a7b-b62e-90d838af46f7}</Project>
+      <Name>GBBCoffeeShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBBCoffeeShop.WebApi.Services\GBBCoffeeShop.WebApi.Services.csproj">
+      <Project>{728daac0-79f0-408c-9e66-1fbf9e91baa5}</Project>
+      <Name>GBBCoffeeShop.WebApi.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

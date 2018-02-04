@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBBCoffeeShop.WebApi", "GBB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBBCoffeeShop.WebApi.Tests", "GBBCoffeeShop.WebApi.Tests\GBBCoffeeShop.WebApi.Tests.csproj", "{1B4C220F-F162-4E20-BC7D-0433F8723FB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBBCoffeeShop.WebApi.Services", "GBBCoffeeShop.WebApi.Services\GBBCoffeeShop.WebApi.Services.csproj", "{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{1B4C220F-F162-4E20-BC7D-0433F8723FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B4C220F-F162-4E20-BC7D-0433F8723FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B4C220F-F162-4E20-BC7D-0433F8723FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{A8FFB7EC-BC99-4A7B-B62E-90D838AF46F7} = {CEE5DA35-BBF6-4C41-84BF-ACEF0BB63E7F}
 		{44C74E0D-0D34-4F65-AED1-CE2EDBBADCD0} = {D2052FC0-0DA1-40AC-A273-3BDA9AA1C508}
 		{1B4C220F-F162-4E20-BC7D-0433F8723FB8} = {D2052FC0-0DA1-40AC-A273-3BDA9AA1C508}
+		{728DAAC0-79F0-408C-9E66-1FBF9E91BAA5} = {D2052FC0-0DA1-40AC-A273-3BDA9AA1C508}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {06564D5D-50CD-4460-B7F6-3F25ED1799C7}
