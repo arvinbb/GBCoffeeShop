@@ -22,12 +22,11 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories
 
         public Sale GetSale(long id)
         {
-            return CoffeeContext.Sales.Include(a => a.Items).SingleOrDefault(a => a.Id == id);
+            return CoffeeContext.Sales
+                .Include(a => a.Items)
+                .Include(a => a.User)
+                .SingleOrDefault(a => a.Id == id);
         }
-
-        public void UpdateSale(Sale sale)
-        {
-            CoffeeContext.Sales.Update(sale);
-        }
+        
     }
 }

@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Web;
 
-namespace GBBCoffeeShop.Business.Entities
+namespace GBBCoffeeShop.WebApi.Request
 {
-    /// <summary>
-    /// The Sale order of a customer. 
-    /// It will normally have one or more SaleItem
-    /// </summary>    
-    public class Sale
+    public class SaleRequest
     {
-        /// <summary>
-        /// The unique Id
-        /// </summary>
         public long Id { get; set; }
 
         /// <summary>
@@ -31,7 +25,7 @@ namespace GBBCoffeeShop.Business.Entities
         /// <summary>
         /// The items associated with the sale
         /// </summary>
-        public IEnumerable<SaleItem>  Items { get; set; }
+        public IEnumerable<SaleItemRequest> Items { get; set; }
 
         /// <summary>
         /// The total sale price
@@ -46,6 +40,6 @@ namespace GBBCoffeeShop.Business.Entities
         /// <summary>
         /// The staff/crew that handled the sale (normally the cashier)
         /// </summary>
-        public User User { get; set; }
+        public long UserId { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories;
+﻿using GBBCoffeeShop.DataAccess.EntityFramework.Domain;
+using GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories;
 using GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories;
 using System;
 using System.Collections.Generic;

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GBBCoffeeShop.Business.Entities
+﻿namespace GBBCoffeeShop.WebApi.Request
 {
-    /// <summary>
-    /// The sale item of a Sale
-    /// </summary>    
-    public class SaleItem
+    public class SaleItemRequest
     {
         /// <summary>
         /// The unique Id
@@ -22,6 +15,6 @@ namespace GBBCoffeeShop.Business.Entities
         /// <summary>
         /// The product associated with the this sale item
         /// </summary>
-        public Product ProductItem { get; set; }
+        public long ProductItemId { get; set; }
     }
 }

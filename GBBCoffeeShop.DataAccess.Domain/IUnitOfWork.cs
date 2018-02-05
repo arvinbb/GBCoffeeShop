@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories
+namespace GBBCoffeeShop.DataAccess.EntityFramework.Domain
 {
     public interface IUnitOfWork : IDisposable
     {

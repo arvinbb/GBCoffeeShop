@@ -5,6 +5,10 @@ using System.Text;
 
 namespace GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories
 {
+    /// <summary>
+    /// Generic repository with methods necessary for CRUD operations
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public interface IRepository<TEntity> where TEntity : class
     {
         TEntity Get(int id);

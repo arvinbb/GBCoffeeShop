@@ -6,8 +6,7 @@ namespace GBBCoffeeShop.Business.Entities
 {
     /// <summary>
     /// The staff/crew of the Coffee shop
-    /// </summary>
-    [Serializable]
+    /// </summary>    
     public class User
     {
         /// <summary>

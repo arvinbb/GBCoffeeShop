@@ -1,4 +1,6 @@
-﻿using GBBCoffeeShop.Business.Interfaces;
+﻿using GBBCoffeeShop.Business.Entities;
+using GBBCoffeeShop.Business.Interfaces;
+using GBBCoffeeShop.WebApi.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +11,13 @@ using Unity.Attributes;
 
 namespace GBBCoffeeShop.WebApi.Controllers
 {
-    [RoutePrefix("v1/sales")]
+    [RoutePrefix("v1/Sales")]
     public class SalesController : ApiController
     {
         [Dependency]
         public ICoffeeShopService CoffeeShopService { get; set; }
 
-        // GET: api/sales/2
+        // GET: v1/sales/2
         /// <summary>
         /// Gets the Coffee Shop Sales the specified Id
         /// </summary>
@@ -29,7 +31,31 @@ namespace GBBCoffeeShop.WebApi.Controllers
             if (result != null && result.Id > 0)
                 return Ok(result);
             else
-                return NotFound();            
+                return BadRequest("Specified id not found: " + id.ToString());             
+        }
+
+        [Route("{id}/Status")]
+        [HttpPost]
+        public IHttpActionResult UpdateSaleStatus([FromUri] long id, [FromBody]SaleStatusUpdateRequest statusRequest)
+        {
+            try
+            {
+                CoffeeShopService.UpdateSaleStatus(id, statusRequest.Status);
+                return Ok();
+            }
+            catch(ArgumentException ex)
+            {
+                return BadRequest("Specified id not found: " + id.ToString());
+                // TODO: log exception
+            }
+        }
+
+        [Route("")]
+        [HttpPost]
+        public IHttpActionResult CreateSale([FromBody]Sale sale)
+        {      
+            CoffeeShopService.CreateSale(sale);
+            return Ok();
         }
     }
 }

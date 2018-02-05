@@ -20,7 +20,14 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories
         {
         }
 
-        public IEnumerable<Product> GetShopMenu(int pageIndex, int pageSize)
+        public Product GetProduct(long id)
+        {
+            return CoffeeContext.Products
+             .Where(p => p.Id == id)
+             .SingleOrDefault();
+        }
+
+        public IEnumerable<Product> GetProducts(int pageIndex, int pageSize)
         {
             return CoffeeContext.Products
              //.Include(c => c)
@@ -30,6 +37,16 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories
              .ToList();
         }
 
-        
+        public IEnumerable<Product> SearchProducts(string name, int pageIndex, int pageSize)
+        {
+            return CoffeeContext.Products
+             .Where(p => p.Name.IndexOf(name, StringComparison.InvariantCultureIgnoreCase) >= 0)
+             .OrderBy(c => c.Name)
+             .Skip((pageIndex - 1) * pageSize)
+             .Take(pageSize)
+             .ToList();
+        }
+
+
     }
 }
