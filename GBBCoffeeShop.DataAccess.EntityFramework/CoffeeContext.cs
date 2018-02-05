@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Extensions;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace GBBCoffeeShop.DataAccess.EntityFramework
@@ -30,6 +31,9 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework
 
         public void SeedData()
         {
+            if (Products.Count() > 0)
+                return;  //run only once          
+
             var product1 = new Product
             {                
                 Name = "Caffe Americano",
