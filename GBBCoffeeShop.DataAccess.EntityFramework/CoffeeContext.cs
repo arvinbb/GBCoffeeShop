@@ -14,10 +14,15 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework
         }
 
         public static CoffeeContext GetContext()
+        {            
+            return GetContext("GBCoffeeShop");
+        }
+
+        public static CoffeeContext GetContext(string databaseName)
         {
             var options = new DbContextOptions<CoffeeContext>();
             var builder = new DbContextOptionsBuilder<CoffeeContext>();
-            builder.UseInMemoryDatabase("Coffee");
+            builder.UseInMemoryDatabase(databaseName);
             options = builder.Options;
             CoffeeContext context = new CoffeeContext(options);
             return context;
@@ -27,8 +32,9 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework
         {
             var product1 = new Product
             {                
-                Name = "Cafe Americano",
-                UnitPrice = 5.0m
+                Name = "Caffe Americano",
+                UnitPrice = 5.0m,
+                IsAvailableForSale = true
             };
 
             Products.Add(product1);
@@ -36,14 +42,16 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework
             var product2 = new Product
             {                
                 Name = "Caffe Latte",
-                UnitPrice = 6.0m
+                UnitPrice = 6.0m,
+                IsAvailableForSale = true
             };
             Products.Add(product2);
 
             var product3 = new Product
             {                
                 Name = "Caffe Mocha",
-                UnitPrice = 4.0m
+                UnitPrice = 4.0m,
+                IsAvailableForSale = true
             };
             Products.Add(product3);
 

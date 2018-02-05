@@ -8,28 +8,28 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GBBCoffeeShop.DataAccess.EntityFramework.Tests
 {
     [TestClass]
-    public class DataAccessTests
+    public class SaleRepositoryTest
     {
-        IUnitOfWork unitOrWork;
-        IShopProductRepository productRepository;
-        IShopSaleRepository saleRepository;
+        static IUnitOfWork unitOfWork;
+        static IShopProductRepository productRepository;
+        static IShopSaleRepository saleRepository;
 
-        [TestInitialize]
-        public void Setup()
-        {
-            CoffeeContext context = CoffeeContext.GetContext();
+        [ClassInitialize]
+        public static void Setup(TestContext testContext)
+        {            
+            CoffeeContext context = CoffeeContext.GetContext(new Guid().ToString());
             // Seed the EntityFramework In-Memory database with values
             context.SeedData();
-            unitOrWork = new UnitOfWork(context);
-            productRepository = unitOrWork.Products;
-            saleRepository = unitOrWork.Sales;
+            unitOfWork = new UnitOfWork(context);
+            productRepository = unitOfWork.Products;
+            saleRepository = unitOfWork.Sales;
         }
 
         [TestMethod]
         public void SaleRepository_GetSale()
         {
             var sale = saleRepository.GetSale(1);
-            Assert.AreEqual(sale.Id, 1);
+            Assert.AreEqual(1, sale.Id);
         }
 
         [TestMethod]
@@ -37,10 +37,10 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Tests
         {
             var sale = saleRepository.GetSale(1);
             sale.Status = "PREPARING";
-            unitOrWork.Save();
+            unitOfWork.Save();
             
             var saleUpdated = saleRepository.GetSale(1);
-            Assert.AreEqual(saleUpdated.Status, "PREPARING");
+            Assert.AreEqual("PREPARING", saleUpdated.Status);
         }
 
         [TestMethod]
@@ -52,9 +52,9 @@ namespace GBBCoffeeShop.DataAccess.EntityFramework.Tests
                 SalePrice = 2.0m
             };
             saleRepository.Add(sale);            
-            unitOrWork.Save();
+            unitOfWork.Save();
             var saleUpdated = saleRepository.GetSale(2);
-            Assert.AreEqual(saleUpdated.SalePrice, 2.0m);
+            Assert.AreEqual(2.0m, saleUpdated.SalePrice);
         }
     }
 }
