@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GBBCoffeeShop.Business.Entities
 {
@@ -10,6 +12,8 @@ namespace GBBCoffeeShop.Business.Entities
         /// <summary>
         /// The unique Id
         /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         /// <summary>
