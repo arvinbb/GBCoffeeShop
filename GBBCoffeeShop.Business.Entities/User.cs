@@ -32,5 +32,20 @@ namespace GBBCoffeeShop.Business.Entities
         /// The role of the user (CASHIER, BARISTA)
         /// </summary>
         public string Role { get; set; }
+
+        /// <summary>
+        /// The login name of the user
+        /// </summary>
+        public string LoginName { get; set; }
+
+        /// <summary>
+        /// The hash of the user's password
+        /// </summary>
+        public string PasswordHash { get; set; }
+
+        /// <summary>
+        /// The salt of the password hash
+        /// </summary>
+        public string PasswordSalt { get; set; }
     }
 }

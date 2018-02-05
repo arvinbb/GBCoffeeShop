@@ -24,6 +24,16 @@ namespace GBBCoffeeShop.Business.Entities
         public decimal UnitPrice { get; set; }
 
         /// <summary>
+        /// The Total Price
+        /// </summary>
+        public decimal Price { get; set; }
+
+        /// <summary>
+        /// The number of quantity sold
+        /// </summary>
+        public int QuantitySold { get; set; }
+
+        /// <summary>
         /// The product associated with the this sale item
         /// </summary>
         public Product ProductItem { get; set; }
