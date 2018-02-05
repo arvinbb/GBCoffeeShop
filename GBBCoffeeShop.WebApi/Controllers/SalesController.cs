@@ -1,5 +1,6 @@
 ﻿using GBBCoffeeShop.Business.Entities;
 using GBBCoffeeShop.Business.Interfaces;
+using GBBCoffeeShop.Common;
 using GBBCoffeeShop.WebApi.Request;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace GBBCoffeeShop.WebApi.Controllers
     {
         [Dependency]
         public ICoffeeShopService CoffeeShopService { get; set; }
+
+        [Dependency]
+        public LoggingService LogService { get; set; }
 
         // GET: v1/sales/2
         /// <summary>
@@ -45,8 +49,9 @@ namespace GBBCoffeeShop.WebApi.Controllers
             }
             catch(ArgumentException ex)
             {
+                LogService.Exception("Error in UpdateSaleStatus", ex);
                 return BadRequest("Specified id not found: " + id.ToString());
-                // TODO: log exception
+                
             }
         }
 

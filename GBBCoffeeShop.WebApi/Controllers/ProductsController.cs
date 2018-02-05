@@ -1,4 +1,5 @@
 ﻿using GBBCoffeeShop.Business.Interfaces;
+using GBBCoffeeShop.Common;
 using GBBCoffeeShop.WebApi.Request;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace GBBCoffeeShop.WebApi.Controllers
         [Dependency]
         public ICoffeeShopService CoffeeShopService { get; set; }
 
+        [Dependency]
+        public LoggingService LogService { get; set; }
 
         /// <summary>
         /// Gets the Coffee Shop Sales the specified Id
@@ -64,8 +67,8 @@ namespace GBBCoffeeShop.WebApi.Controllers
             }
             catch(ArgumentException ex)
             {
+                LogService.Exception("Error in UpdateProductAvailability", ex);
                 return BadRequest("Specified id not found: " + id.ToString());
-                //TODO: log ex
             }
         }
 
