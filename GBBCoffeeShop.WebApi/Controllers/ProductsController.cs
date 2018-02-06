@@ -58,7 +58,7 @@ namespace GBBCoffeeShop.WebApi.Controllers
         /// </summary>
         [Route("{id:long}/availability")]
         [HttpPost]
-        public IHttpActionResult UpdateProductAvailability(long id, ProductAvailabilityUpdateRequest availabilityUpdateRequest)
+        public IHttpActionResult UpdateProductAvailability([FromUri]long id, [FromBody]ProductAvailabilityUpdateRequest availabilityUpdateRequest)
         {
             try
             {
