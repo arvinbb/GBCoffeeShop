@@ -136,7 +136,7 @@
       <Name>GBBCoffeeShop.Business.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\GBBCoffeeShop.Business.Service\GBBCoffeeShop.Business.Service.csproj">
-      <Project>{ab5eaa29-add4-459b-bc96-35dc0ed23602}</Project>
+      <Project>{4c4b7b89-6180-425d-a583-61ea33d14a8b}</Project>
       <Name>GBBCoffeeShop.Business.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\GBBCoffeeShop.DataAccess.Domain\GBBCoffeeShop.DataAccess.Domain.csproj">

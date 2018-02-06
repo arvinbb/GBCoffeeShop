@@ -3,8 +3,6 @@ using GBBCoffeeShop.Business.Interfaces;
 using GBBCoffeeShop.DataAccess.EntityFramework;
 using GBBCoffeeShop.DataAccess.EntityFramework.Domain;
 using GBBCoffeeShop.DataAccess.EntityFramework.Domain.Repositories;
-using GBBCoffeeShop.DataAccess.EntityFramework.Persistence;
-using GBBCoffeeShop.DataAccess.EntityFramework.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +15,9 @@ namespace GBBCoffeeShop.Business.Service
     /// <summary>
     /// Facade Service implementation
     /// </summary>
-    [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class CoffeeShopService : ICoffeeShopService
-    {        
+    {
         private IUnitOfWork unitOfWork;
         private IShopProductRepository shopProductRepository;
         private IShopSaleRepository shopSaleRepository;
@@ -29,21 +27,21 @@ namespace GBBCoffeeShop.Business.Service
         /// </summary>
         /// <param name="unitOfWork">Created by DI</param>
         public CoffeeShopService(IUnitOfWork unitOfWork)
-        {            
+        {
             shopProductRepository = unitOfWork.Products;
             shopSaleRepository = unitOfWork.Sales;
         }
 
-        
+
         public IEnumerable<Product> GetProducts(int pageIndex, int pageSize)
         {
             return shopProductRepository.GetProducts(pageIndex, pageSize);
         }
-        
+
 
         public IEnumerable<Product> SearchProducts(string name, int pageIndex, int pageSize)
         {
-            return shopProductRepository.SearchProducts(name, pageIndex, pageSize);             
+            return shopProductRepository.SearchProducts(name, pageIndex, pageSize);
         }
 
         /// <summary>
@@ -63,7 +61,7 @@ namespace GBBCoffeeShop.Business.Service
             unitOfWork.Save();
         }
 
-        
+
 
         public Sale GetSale(long id)
         {
@@ -98,7 +96,7 @@ namespace GBBCoffeeShop.Business.Service
 
             return sale.Status;
         }
-        
+
         public void UpdateSaleStatus(long id, string status)
         {
             var sale = shopSaleRepository.GetSale(id);
